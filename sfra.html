@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SFRA Engineering LLP | Civil Engineering Experts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #0b2b52;
+            --secondary-color: #d4af37;
+            --accent-color: #1d66c2;
+            --light-color: #f4f7fb;
+            --dark-color: #1f1f1f;
+            --gray-color: #6c757d;
+
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background: linear-gradient(135deg, #f7fbff, #eef3fb);
+            overflow-x: hidden;
+        }
+
+        /* Scroll Progress Bar */
+        #progressBar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            width: 0%;
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+            z-index: 2000;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3.8rem;
+        }
+
+        h2 {
+            font-size: 2.6rem;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2.8rem;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.08rem;
+            color: #444;
+        }
+
+        section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        /* Soft section shape effect */
+        section::before {
+            content: "";
+            position: absolute;
+            top: -60px;
+            left: -60px;
+            width: 160px;
+            height: 160px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.20), transparent);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 34px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(29, 102, 194, 0.22);
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--secondary-color), #f6d365);
+            color: #1b1b1b;
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.22);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        /* Header & Navigation (NEW LOOK) */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: var(--transition);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .logo i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+            font-size: 1.9rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.6rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #222;
+            font-weight: 600;
+            font-size: 1.02rem;
+            transition: var(--transition);
+            padding: 8px 14px;
+            border-radius: 10px;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: rgba(11, 43, 82, 0.10);
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.6rem;
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background:
+                radial-gradient(circle at top left, rgba(212,175,55,0.25), transparent 45%),
+                linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.70)),
+                url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding-top: 90px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 4.1rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2.2rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .hero-btns {
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .hero-btns .btn {
+            margin: 8px 10px;
+        }
+
+        /* Cards Style Improvements */
+        .card-glow {
+            background: rgba(255,255,255,0.88);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: var(--shadow);
+            border-radius: 14px;
+            transition: var(--transition);
+        }
+
+        .card-glow:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 18px 35px rgba(0,0,0,0.15);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 14px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-8px);
+            border-color: rgba(11, 43, 82, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-text {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* Vision & Mission */
+        .vision-mission {
+            background: linear-gradient(135deg, #eef3fb, #f7fbff);
+        }
+
+        .vm-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.2rem;
+        }
+
+        .vm-card {
+            padding: 2.8rem;
+        }
+
+        .vm-card i {
+            font-size: 2.6rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.2rem;
+        }
+
+        /* Team Section */
+        .team-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-card {
+            overflow: hidden;
+        }
+
+        .team-img {
+            height: 260px;
+            background: #f0f3f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        /* ✅ TEAM IMAGE COMMENT (PUT YOUR IMAGE HERE)
+           1) Save image in same folder: arun.jpg
+           2) Replace icon div with:
+              <img src="arun.jpg" alt="Arun Kumar" class="team-photo">
+        */
+        .team-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-info {
+            padding: 1.5rem;
+        }
+
+        .team-role {
+            color: var(--secondary-color);
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+        }
+
+        /* Services Section */
+        .services {
+            background: linear-gradient(135deg, #f7fbff, #eef3fb);
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            padding: 2.4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary-color), var(--accent-color));
+            transition: var(--transition);
+        }
+
+        .service-card:hover:before {
+            width: 100%;
+            opacity: 0.08;
+        }
+
+        .service-icon {
+            font-size: 2.4rem;
+            color: var(--primary-color);
+            margin-bottom: 1.2rem;
+        }
+
+        /* Software Section */
+        .software-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .software-item {
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .software-item:hover {
+            border-color: rgba(11, 43, 82, 0.22);
+        }
+
+        .software-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.3rem;
+            background: white;
+            padding: 1.2rem;
+            border-radius: 14px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-icon {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            background: rgba(11, 43, 82, 0.08);
+            padding: 1rem;
+            border-radius: 50%;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 14px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.3rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: var(--transition);
+            background: #fafcff;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(11, 43, 82, 0.12);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary-color), #061a33);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .footer-links h3, .footer-social h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            color: var(--secondary-color);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-left: 6px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            background-color: rgba(255, 255, 255, 0.12);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background-color: var(--secondary-color);
+            color: #111;
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {opacity: 0; transform: translateY(35px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content, .vm-container, .contact-container {
+                grid-template-columns: 1fr;
+            }
+            .footer-content { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                background: rgba(255,255,255,0.92);
+                backdrop-filter: blur(14px);
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                transform: translateY(-110%);
+                opacity: 0;
+                transition: var(--transition);
+                z-index: 999;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 { font-size: 2.6rem; }
+        }
+
+        @media (max-width: 576px) {
+            section { padding: 3.5rem 0; }
+            .hero-btns .btn { display: block; margin: 10px 0; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Progress Bar -->
+    <div id="progressBar"></div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-drafting-compass"></i> SFRA ENGINEERING
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#vision">Vision & Mission</a></li>
+                    <li><a href="#team">Our Team</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#software">Software</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>SFRA ENGINEERING LLP</h1>
+                <p style="color: white;">A multidisciplinary civil engineering firm offering expert services in building, railway, highway, and bridge design. We bring precision, reliability, and innovation to every project we deliver.</p>
+                <div class="hero-btns">
+                    <a href="#about" class="btn">Discover More</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Company</h2>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <p>SFRA Engineering LLP is a multidisciplinary civil engineering firm specializing in detailed design and execution planning for infrastructure projects across India.</p>
+                    <p>With core expertise in building structures, bridges, railways, and highways, we deliver engineering excellence through innovation, precision, and professional commitment.</p>
+                    <p>Backed by a team of highly qualified engineers and CAD professionals, we provide services ranging from structural design, project management, and CAD drafting to site coordination.</p>
+                    <p>Our goal is to provide end-to-end civil engineering solutions that are technically sound, cost-effective, and aligned with the latest industry standards.</p>
+                </div>
+
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-text">Years of Combined Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-text">Design Packages Delivered</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">25+</div>
+                        <div class="stat-text">Major Projects Done</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-text">Private Sector Clients</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Mission -->
+    <section id="vision" class="vision-mission">
+        <div class="container">
+            <div class="section-title">
+                <h2>Vision & Mission</h2>
+            </div>
+
+            <div class="vm-container">
+                <div class="vm-card card-glow">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Our Mission</h3>
+                    <p>To deliver high-quality, cost-effective, and technically sound engineering solutions in building, railway, highway, and bridge infrastructure with innovation, execution excellence, and integrity.</p>
+                </div>
+
+                <div class="vm-card card-glow">
+                    <i class="fas fa-eye"></i>
+                    <h3>Our Vision</h3>
+                    <p>To be a leading civil engineering firm in India known for excellence in detailed design, structural innovation, and long-term value for clients and communities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section id="team">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Team</h2>
+            </div>
+
+            <div class="team-container">
+
+                <div class="team-card card-glow">
+                    <div class="team-img">
+                        
+                             <img src="img/ggg.jpeg" alt="Arun Kumar" class="team-photo">
+                        
+                        <i  style="font-size: 4rem; color: var(--primary-color);"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3>ARUN KUMAR</h3>
+                        <div class="team-role">Sr.Structure Engineer</div>
+                        <p>M.tech (Structural Engineering) 10+ year Experience In Detail Designs. Ph.D Pursuing in Structural Engineering.</p>
+                    </div>
+                </div>
+
+                <div class="team-card card-glow">
+                    <div class="team-img">
+                        
+                             <img src="img/mamta.jpeg" alt="Mamta Singh" class="team-photo">
+                        
+                             
+                        <i  style="font-size: 4rem; color: var(--primary-color);"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3>Mamta Singh</h3>
+                        <div class="team-role">irector</div>
+                        <p>B.tech (Civil Engineering) From Delhi Technical University With 6+ year Experience in Railways Bridges, High Rise Buildings, Detail Design.</p>
+                    </div>
+                </div>
+
+                <div class="team-card card-glow">
+                    <div class="team-img">
+                        
+                             <img src="img/saif.jpeg"  alt="Saif Ali Khan" class="team-photo">
+                        
+                        <i style="font-size: 4rem; color: var(--primary-color);"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3>SAIF ALI KHAN</h3>
+                        <div class="team-role">Managing Director</div>
+                        <p>B.tech (Civil Engineering) 4+ year Experience in Railways Bridges, High Rise Buildings, Detail Design.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+            </div>
+
+            <div class="services-container">
+
+                <div class="service-card card-glow">
+                    <div class="service-icon"><i class="fas fa-building"></i></div>
+                    <h3>Structural Design</h3>
+                    <p>RCC and steel structure design for buildings, bridges, and industrial projects.</p>
+                </div>
+
+                <div class="service-card card-glow">
+                    <div class="service-icon"><i class="fas fa-train"></i></div>
+                    <h3>Railway Engineering</h3>
+                    <p>Design and detailing of ROBS, FOBs, station layouts, and platforms.</p>
+                </div>
+
+                <div class="service-card card-glow">
+                    <div class="service-icon"><i class="fas fa-road"></i></div>
+                    <h3>Highway & Bridge Design</h3>
+                    <p>Planning and structural detailing of roadways, culverts, and bridges.</p>
+                </div>
+
+                <div class="service-card card-glow">
+                    <div class="service-icon"><i class="fas fa-hard-hat"></i></div>
+                    <h3>Construction Engineering</h3>
+                    <p>Execution planning, site layout design, and technical supervision support for civil engineering works.</p>
+                </div>
+
+                <div class="service-card card-glow">
+                    <div class="service-icon"><i class="fas fa-cube"></i></div>
+                    <h3>BIM Modeling</h3>
+                    <p>3D modeling, clash detection, and coordination using Revit and BIM tools.</p>
+                </div>
+
+                <div class="service-card card-glow">
+                    <div class="service-icon"><i class="fas fa-file-signature"></i></div>
+                    <h3>Pre-Bid Engineering</h3>
+                    <p>Support during tendering with concept layouts, take-offs & technical inputs.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Software -->
+    <section id="software">
+        <div class="container">
+            <div class="section-title">
+                <h2>Software & Platforms Used</h2>
+            </div>
+
+            <div class="software-container">
+                <div class="software-item card-glow">
+                    <div class="software-icon"><i class="fas fa-drafting-compass"></i></div>
+                    <h4>AutoCAD</h4>
+                    <p>2D drafting and detailing</p>
+                </div>
+
+                <div class="software-item card-glow">
+                    <div class="software-icon"><i class="fas fa-cube"></i></div>
+                    <h4>Revit</h4>
+                    <p>3D modeling and BIM</p>
+                </div>
+
+                <div class="software-item card-glow">
+                    <div class="software-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h4>STAAD.Pro</h4>
+                    <p>Structural design</p>
+                </div>
+
+                <div class="software-item card-glow">
+                    <div class="software-icon"><i class="fas fa-building"></i></div>
+                    <h4>ETABS</h4>
+                    <p>Building modeling</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Let's Connect With Us!</h2>
+            </div>
+
+            <div class="contact-container">
+
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+91 9955965752</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>sfraengineeringllp@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h3>Office Address</h3>
+                            <p>SFRA Engineering LLP<br>29A, BLOCK A3, NOIDA SEC- 71<br>GAUTAM BUDDHA NAGAR, 201301</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Send us a Message</h3>
+                    <form id="messageForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" rows="5" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <a href="#" class="footer-logo">
+                        <i class="fas fa-drafting-compass"></i> SFRA ENGINEERING
+                    </a>
+                    <p>A multidisciplinary civil engineering firm offering expert services with precision, reliability, and innovation.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#vision">Vision & Mission</a></li>
+                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <p style="margin-top: 1rem;">Follow us for updates and engineering insights.</p>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2023 SFRA Engineering LLP. All Rights Reserved.</p>
+                <p>Design By PrimewebHelix</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close menu on click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Active Nav Link Highlight on Scroll
+        const sections = document.querySelectorAll("section");
+        const navA = document.querySelectorAll(".nav-links a");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navA.forEach(a => {
+                a.classList.remove("active");
+                if (a.getAttribute("href") === "#" + current) {
+                    a.classList.add("active");
+                }
+            });
+
+            // Scroll Progress Bar
+            const scrollTop = document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const progress = (scrollTop / scrollHeight) * 100;
+            document.getElementById("progressBar").style.width = progress + "%";
+        });
+
+        // Form Submission
+        document.getElementById('messageForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>
