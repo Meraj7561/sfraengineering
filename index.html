@@ -174,48 +174,74 @@
             padding: 12px 0;
         }
 
+        /* Updated Logo Style */
         .logo {
             display: flex;
             align-items: center;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary-color);
             text-decoration: none;
-            letter-spacing: 0.5px;
-            white-space: nowrap;
+            position: relative;
+            padding-left: 15px;
             flex-shrink: 0;
         }
 
-        .logo i {
+        .logo:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 60px;
+            background: linear-gradient(180deg, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        .logo-tagline {
+            font-size: 0.65rem;
+            color: var(--gray-color);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+            white-space: nowrap;
+        }
+
+        .logo-tagline span {
             color: var(--secondary-color);
-            margin-right: 10px;
-            font-size: 1.8rem;
+            margin: 0 3px;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 1.2rem;
+            gap: 0.8rem;
             align-items: center;
             white-space: nowrap;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
             padding: 5px 0;
-        }
-
-        .nav-links::-webkit-scrollbar {
-            display: none;
+            flex-wrap: wrap;
+            justify-content: flex-end;
         }
 
         .nav-links a {
             text-decoration: none;
             color: #333;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: var(--transition);
-            padding: 8px 14px;
+            padding: 8px 12px;
             border-radius: 8px;
             position: relative;
             white-space: nowrap;
@@ -261,6 +287,7 @@
             border-radius: 6px;
             transition: var(--transition);
             flex-shrink: 0;
+            z-index: 1001;
         }
 
         .mobile-menu-btn:hover {
@@ -326,9 +353,134 @@
         /* About Section */
         .about-content {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1.2fr 0.8fr;
             gap: 3.5rem;
+            align-items: start;
+        }
+
+        .about-image-container {
+            width: 100%;
+            height: 100%;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .about-image-container:hover .about-image {
+            transform: scale(1.05);
+        }
+
+        .about-image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(11, 43, 82, 0.8), transparent);
+            color: white;
+            padding: 2rem;
+            transform: translateY(100%);
+            transition: transform 0.5s ease;
+        }
+
+        .about-image-container:hover .about-image-overlay {
+            transform: translateY(0);
+        }
+
+        .about-image-overlay h3 {
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .letterhead-info {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 14px;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--secondary-color);
+            margin-top: 2rem;
+        }
+
+        .letterhead-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .letterhead-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .detail-item {
+            margin-bottom: 1rem;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.3rem;
+            display: flex;
             align-items: center;
+            gap: 8px;
+        }
+
+        .detail-label i {
+            color: var(--secondary-color);
+            min-width: 20px;
+        }
+
+        .detail-value {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .iso-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #f0f7ff, #e6f0ff);
+            padding: 12px 20px;
+            border-radius: 10px;
+            margin-top: 1rem;
+            border: 2px solid rgba(11, 43, 82, 0.1);
+        }
+
+        .iso-badge i {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+        }
+
+        .iso-text {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .services-highlight {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .service-tag {
+            background: rgba(11, 43, 82, 0.05);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--primary-color);
+            text-align: center;
+            border: 1px solid rgba(11, 43, 82, 0.1);
         }
 
         .stats {
@@ -493,37 +645,6 @@
             background: linear-gradient(135deg, #f7fbff, #eef3fb);
         }
 
-        .gallery-filter {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 3rem;
-            animation: fadeIn 0.8s ease 0.2s both;
-        }
-
-        .filter-btn {
-            padding: 12px 28px;
-            background: white;
-            border: 2px solid rgba(11, 43, 82, 0.15);
-            border-radius: 50px;
-            font-weight: 600;
-            color: var(--primary-color);
-            cursor: pointer;
-            transition: var(--transition);
-            font-size: 1rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-
-        .filter-btn.active,
-        .filter-btn:hover {
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            color: white;
-            border-color: transparent;
-            box-shadow: 0 8px 20px rgba(29, 102, 194, 0.25);
-            transform: translateY(-2px);
-        }
-
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -669,12 +790,6 @@
             font-size: 0.9rem;
             font-weight: 600;
             margin-top: 0.5rem;
-        }
-
-        .view-more-btn {
-            text-align: center;
-            margin-top: 3.5rem;
-            animation: fadeIn 0.8s ease 1.2s both;
         }
 
         /* Lightbox Modal */
@@ -937,40 +1052,19 @@
             }
         }
 
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
         /* Responsive */
         @media (max-width: 1200px) {
             .nav-links {
-                gap: 1rem;
+                gap: 0.7rem;
             }
             
             .nav-links a {
-                font-size: 0.92rem;
-                padding: 8px 12px;
+                font-size: 0.85rem;
+                padding: 6px 10px;
             }
             
-            .logo {
-                font-size: 1.4rem;
+            .logo-main {
+                font-size: 1.5rem;
             }
             
             .gallery-grid {
@@ -993,35 +1087,40 @@
             
             .nav-links {
                 position: fixed;
-                top: 75px;
+                top: 0;
                 left: 0;
                 width: 100%;
+                height: 100vh;
                 background: rgba(255, 255, 255, 0.98);
                 backdrop-filter: blur(20px);
                 flex-direction: column;
                 align-items: center;
+                justify-content: center;
                 padding: 2rem 0;
-                transform: translateY(-150%);
+                transform: translateX(-100%);
                 opacity: 0;
                 transition: var(--transition);
                 z-index: 999;
                 box-shadow: var(--shadow);
                 border-top: 1px solid rgba(0,0,0,0.1);
                 white-space: normal;
-                overflow: visible;
+                overflow: hidden;
+                visibility: hidden;
             }
 
             .nav-links.active {
-                transform: translateY(0);
+                transform: translateX(0);
                 opacity: 1;
+                visibility: visible;
             }
 
             .nav-links a {
-                padding: 12px 20px;
-                font-size: 1.1rem;
+                padding: 15px 25px;
+                font-size: 1.2rem;
                 width: 80%;
                 text-align: center;
                 white-space: normal;
+                margin: 5px 0;
             }
 
             .mobile-menu-btn {
@@ -1030,6 +1129,19 @@
 
             .hero h1 { 
                 font-size: 2.8rem; 
+            }
+            
+            .letterhead-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-highlight {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image-container {
+                height: 400px;
+                margin-top: 2rem;
             }
         }
 
@@ -1044,15 +1156,6 @@
             
             .gallery-grid {
                 grid-template-columns: 1fr;
-            }
-            
-            .gallery-filter {
-                gap: 0.8rem;
-            }
-            
-            .filter-btn {
-                padding: 10px 20px;
-                font-size: 0.9rem;
             }
             
             .lightbox-nav {
@@ -1080,32 +1183,20 @@
                 font-size: 2rem;
             }
             
-            .logo {
+            .logo-main {
                 font-size: 1.3rem;
-            }
-            
-            .logo i {
-                font-size: 1.5rem;
-                margin-right: 8px;
             }
             
             .gallery-img {
                 height: 220px;
             }
-        }
-
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 1.2rem;
+            
+            .stat-number {
+                font-size: 2rem;
             }
             
-            .nav-links {
-                gap: 0.3rem;
-            }
-            
-            .nav-links a {
-                font-size: 0.85rem;
-                padding: 6px 8px;
+            .about-image-container {
+                height: 300px;
             }
         }
     </style>
@@ -1121,14 +1212,17 @@
         <div class="container">
             <nav class="navbar">
                 <a href="#" class="logo">
-                    <i class="fas fa-drafting-compass"></i> SFRA ENGINEERING
+                    <div class="logo-text">
+                        <div class="logo-main">SFRA ENGINEERING LLP</div>
+                        <div class="logo-tagline">RCC Analysis & Design <span>•</span> Repair & Rehabilitation <span>•</span> Steel Analysis & Design <span>•</span> Estimation & Costings</div>
+                    </div>
                 </a>
 
                 <ul class="nav-links">
                     <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#vision">Vision & Mission</a></li>
-                    <li><a href="#team">Our Team</a></li>
+                    <li><a href="#team">Team</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#software">Software</a></li>
                     <li><a href="#gallery">Gallery</a></li>
@@ -1169,28 +1263,75 @@
                     <p>With core expertise in building structures, bridges, railways, and highways, we deliver engineering excellence through innovation, precision, and professional commitment.</p>
                     <p>Backed by a team of highly qualified engineers and CAD professionals, we provide services ranging from structural design, project management, and CAD drafting to site coordination.</p>
                     <p>Our goal is to provide end-to-end civil engineering solutions that are technically sound, cost-effective, and aligned with the latest industry standards.</p>
+                    
+                    <!-- Services from PDF -->
+                    <div class="services-highlight">
+                        <div class="service-tag">Construction Engineering</div>
+                        <div class="service-tag">Pre BID Engineering</div>
+                        <div class="service-tag">Detail Project Report (DPR)</div>
+                        <div class="service-tag">PEB Structure</div>
+                    </div>
+                    
+                    <!-- ISO Certification Badge -->
+                    <div class="iso-badge">
+                        <i class="fas fa-award"></i>
+                        <div class="iso-text">ISO 9001:2015 CERTIFIED COMPANY</div>
+                    </div>
+                    
+                    <!-- Letterhead Information Added Here -->
+                    <div class="letterhead-info">
+                        <h3>Company Details</h3>
+                        <div class="letterhead-details">
+                            <div class="detail-item">
+                                <div class="detail-label"><i class="fas fa-map-marker-alt"></i> Registered Address</div>
+                                <div class="detail-value">29A, BLOCK A3, SECTOR-71, NOIDA<br>GAUTAM BUDDHA NAGAR, UTTAR PRADESH 201301</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label"><i class="fas fa-phone"></i> Contact Numbers</div>
+                                <div class="detail-value">+91 7065905870<br>+91 9955965752</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label"><i class="fas fa-envelope"></i> Email Address</div>
+                                <div class="detail-value">sfraengineeringllp@gmail.com</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label"><i class="fas fa-file-invoice"></i> GST Number</div>
+                                <div class="detail-value">09AFJFS4813B1Z2</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="stats">
-                    <div class="stat-item">
-                        <div class="stat-number">10+</div>
-                        <div class="stat-text">Years of Combined Experience</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">100+</div>
-                        <div class="stat-text">Design Packages Delivered</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">25+</div>
-                        <div class="stat-text">Major Projects Done</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">10+</div>
-                        <div class="stat-text">Private Sector Clients</div>
+                <!-- Civil Engineering Image -->
+                <div class="about-image-container">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=80" alt="Civil Engineering CAD Design" class="about-image">
+                    <div class="about-image-overlay">
+                        <h3>Precision Engineering</h3>
+                        <p>Advanced CAD design and structural analysis using cutting-edge technology</p>
                     </div>
                 </div>
 
             </div>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-text">Years of Combined Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-text">Design Packages Delivered</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-text">Major Projects Done</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-text">Private Sector Clients</div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -1233,8 +1374,12 @@
                     </div>
                     <div class="team-info">
                         <h3>ARUN KUMAR</h3>
-                        <div class="team-role">Sr.Structure Engineer</div>
-                        <p>Structural Design Engineer with strong experience in detailed design and DPR preparation for buildings, bridges, railway structures, FOBs, PEBs, and high-rise RCC projects. Skilled in RCC and steel structural analysis, detailed engineering, and design optimization in compliance with IS Codes, IRC, and railway standards across infrastructure, industrial, highway, and railway sectors.</p>
+                        <div class="team-role">Sr. Structure Engineer</div>
+                        <p>Arun Kumar is a Senior Structural Design Engineer with over 15 years of professional experience, having worked with leading MNCs on diverse infrastructure and building projects. He holds a B.Tech in Civil Engineering and an M.Tech in Structural Engineering, and is currently pursuing a Ph.D. in Structural Engineering.
+
+He specializes in detailed structural design and DPR (Detailed Project Report) preparation for high-rise RCC buildings, bridges (railway and highway), railway structures, FOBs, PEB industrial projects, and steel structures. He is actively involved in structural analysis, detailed engineering, and design optimization, ensuring compliance with IS Codes, IRC guidelines, and Railway standards.
+
+With extensive experience across RCC and steel structures, Arun Kumar has contributed to highway, railway, industrial, and infrastructure projects, delivering safe, efficient, and sustainable engineering solutions.</p>
                     </div>
                 </div>
 
@@ -1244,9 +1389,9 @@
                         <i style="font-size: 4rem; color: var(--primary-color);"></i>
                     </div>
                     <div class="team-info">
-                        <h3>Mamta Singh</h3>
+                        <h3>MAMTA SINGH</h3>
                         <div class="team-role">Director</div>
-                        <p>She holds a Master of Arts (MA) degree from Veer Bahadur Purvanchal University, Jaunpur. He is experienced in data collection, inventory management, and audit report preparation for various projects..</p>
+                        <p>She holds a Master of Arts (MA) degree from Veer Bahadur Purvanchal University, Jaunpur. She is experienced in data collection, inventory management, and audit report preparation for various projects.</p>
                     </div>
                 </div>
 
@@ -1311,6 +1456,18 @@
                     <p>Support during tendering with concept layouts, take-offs & technical inputs.</p>
                 </div>
 
+                <div class="service-card card-glow">
+                    <div class="service-icon"><i class="fas fa-file-alt"></i></div>
+                    <h3>Detail Project Report (DPR)</h3>
+                    <p>Comprehensive project reports with technical specifications and cost estimates.</p>
+                </div>
+
+                <div class="service-card card-glow">
+                    <div class="service-icon"><i class="fas fa-industry"></i></div>
+                    <h3>PEB Structure Design</h3>
+                    <p>Pre-Engineered Building structure design and detailing for industrial projects.</p>
+                </div>
+
             </div>
         </div>
     </section>
@@ -1357,8 +1514,6 @@
                 <h2>Project Gallery</h2>
                 <p style="text-align: center; max-width: 700px; margin: 0 auto 1rem; font-size: 1.1rem;">Explore our completed engineering projects showcasing excellence in design, precision, and execution.</p>
             </div>
-
-            <!-- Gallery Filter -->
 
             <!-- Gallery Grid -->
             <div class="gallery-grid">
@@ -1411,12 +1566,7 @@
                         <span class="project-year">Completed: 2022</span>
                     </div>
                 </div>
-
-                <!-- Project 3 -->
             </div>
-
-            <!-- View More Button -->
-            
         </div>
     </section>
 
@@ -1452,7 +1602,7 @@
                         <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
                         <div>
                             <h3>Phone</h3>
-                            <p>+91 9955965752</p>
+                            <p>+91 9955965752<br>+91 7065905870</p>
                         </div>
                     </div>
 
@@ -1468,7 +1618,15 @@
                         <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div>
                             <h3>Office Address</h3>
-                            <p>SFRA Engineering LLP<br>29A, BLOCK A3, NOIDA SEC- 71<br>GAUTAM BUDDHA NAGAR, 201301</p>
+                            <p>SFRA Engineering LLP<br>29A, BLOCK A3, SECTOR-71, NOIDA<br>GAUTAM BUDDHA NAGAR, UTTAR PRADESH 201301</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-award"></i></div>
+                        <div>
+                            <h3>Certification</h3>
+                            <p>ISO 9001:2015 Certified Company<br>GST: 09AFJFS4813B1Z2</p>
                         </div>
                     </div>
                 </div>
@@ -1510,9 +1668,15 @@
             <div class="footer-content">
                 <div>
                     <a href="#" class="footer-logo">
-                        <i class="fas fa-drafting-compass"></i> SFRA ENGINEERING
+                        <i class="fas fa-drafting-compass"></i> SFRA ENGINEERING LLP
                     </a>
                     <p>A multidisciplinary civil engineering firm offering expert services with precision, reliability, and innovation.</p>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #ddd;">
+                        ISO 9001:2015 Certified<br>
+                        GST: 09AFJFS4813B1Z2<br>
+                        29A, BLOCK A3, SECTOR-71, NOIDA<br>
+                        GAUTAM BUDDHA NAGAR, 201301
+                    </p>
                 </div>
 
                 <div class="footer-links">
@@ -1611,38 +1775,6 @@
             this.reset();
         });
 
-        // Gallery Filter Functionality
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const galleryItems = document.querySelectorAll('.gallery-item');
-
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
-                button.classList.add('active');
-                
-                const filterValue = button.getAttribute('data-filter');
-                
-                galleryItems.forEach((item, index) => {
-                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                        item.style.display = 'block';
-                        // Add animation delay for staggered appearance
-                        setTimeout(() => {
-                            item.style.opacity = '1';
-                            item.style.transform = 'translateY(0)';
-                        }, index * 100);
-                    } else {
-                        item.style.opacity = '0';
-                        item.style.transform = 'translateY(30px)';
-                        setTimeout(() => {
-                            item.style.display = 'none';
-                        }, 300);
-                    }
-                });
-            });
-        });
-
         // Lightbox Functionality
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
@@ -1726,7 +1858,7 @@
         });
 
         // Add subtle animation to gallery items on hover
-        galleryItems.forEach(item => {
+        document.querySelectorAll('.gallery-item').forEach(item => {
             item.addEventListener('mouseenter', () => {
                 item.style.transform = 'translateY(-10px) scale(1.02)';
             });
