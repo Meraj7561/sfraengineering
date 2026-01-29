@@ -6,7 +6,6 @@
     <title>SFRA Engineering LLP | Civil Engineering Experts</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-
     <style>
         :root {
             --primary-color: #0b2b52;
@@ -144,7 +143,7 @@
             margin-bottom: 3.5rem;
         }
 
-        /* Header & Navigation (NEW LOOK) */
+        /* Header & Navigation */
         header {
             position: fixed;
             top: 0;
@@ -354,11 +353,6 @@
             position: relative;
         }
 
-        /* ✅ TEAM IMAGE COMMENT (PUT YOUR IMAGE HERE)
-           1) Save image in same folder: arun.jpg
-           2) Replace icon div with:
-              <img src="arun.jpg" alt="Arun Kumar" class="team-photo">
-        */
         .team-photo {
             width: 100%;
             height: 100%;
@@ -435,6 +429,302 @@
             font-size: 2rem;
             color: var(--primary-color);
             margin-bottom: 1rem;
+        }
+
+        /* Gallery Section */
+        #gallery {
+            background: linear-gradient(135deg, #f7fbff, #eef3fb);
+        }
+
+        .gallery-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            animation: fadeIn 0.8s ease 0.2s both;
+        }
+
+        .filter-btn {
+            padding: 12px 28px;
+            background: white;
+            border: 2px solid rgba(11, 43, 82, 0.15);
+            border-radius: 50px;
+            font-weight: 600;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 8px 20px rgba(29, 102, 194, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            transition: var(--transition);
+            border-radius: 14px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .gallery-item:nth-child(1) { animation-delay: 0.5s; }
+        .gallery-item:nth-child(2) { animation-delay: 0.6s; }
+        .gallery-item:nth-child(3) { animation-delay: 0.7s; }
+        .gallery-item:nth-child(4) { animation-delay: 0.8s; }
+        .gallery-item:nth-child(5) { animation-delay: 0.9s; }
+        .gallery-item:nth-child(6) { animation-delay: 1.0s; }
+
+        .gallery-img {
+            height: 260px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .gallery-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gallery-item:hover .gallery-img img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(11, 43, 82, 0), rgba(11, 43, 82, 0.85));
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            opacity: 0;
+            transition: var(--transition);
+            padding: 2rem;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-view {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--secondary-color);
+            color: #1b1b1b;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transform: translateY(20px);
+            transition: var(--transition);
+            margin-right: 15px;
+        }
+
+        .gallery-item:hover .gallery-view {
+            transform: translateY(0);
+        }
+
+        .gallery-fullscreen {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: white;
+            color: var(--primary-color);
+            border-radius: 50%;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-fullscreen {
+            transform: translateY(0);
+        }
+
+        .gallery-info {
+            padding: 2rem;
+            background: white;
+            border-radius: 0 0 14px 14px;
+        }
+
+        .gallery-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .gallery-info p {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .project-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(11, 43, 82, 0.08);
+            color: var(--primary-color);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .project-year {
+            display: inline-block;
+            padding: 6px 14px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .view-more-btn {
+            text-align: center;
+            margin-top: 3.5rem;
+            animation: fadeIn 0.8s ease 1.2s both;
+        }
+
+        /* Lightbox Modal */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90vh;
+            position: relative;
+            transform: scale(0.8);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .lightbox.active .lightbox-content {
+            transform: scale(1);
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .lightbox-info {
+            position: absolute;
+            bottom: -80px;
+            left: 0;
+            width: 100%;
+            color: white;
+            text-align: center;
+        }
+
+        .lightbox-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .lightbox-info p {
+            color: #ddd;
+            font-size: 1.1rem;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .lightbox-close:hover {
+            color: var(--secondary-color);
+            transform: rotate(90deg);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 2rem;
+            transform: translateY(-50%);
+        }
+
+        .lightbox-nav button {
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .lightbox-nav button:hover {
+            background: var(--secondary-color);
+            color: #1b1b1b;
+            transform: scale(1.1);
         }
 
         /* Contact Section */
@@ -571,16 +861,63 @@
 
         /* Animations */
         @keyframes fadeInUp {
-            from {opacity: 0; transform: translateY(35px);}
-            to {opacity: 1; transform: translateY(0);}
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
         /* Responsive */
+        @media (max-width: 1200px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            }
+        }
+
         @media (max-width: 992px) {
             .about-content, .vm-container, .contact-container {
                 grid-template-columns: 1fr;
             }
-            .footer-content { grid-template-columns: 1fr; }
+            .footer-content { 
+                grid-template-columns: 1fr; 
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
         }
 
         @media (max-width: 768px) {
@@ -610,12 +947,51 @@
                 display: block;
             }
 
-            .hero h1 { font-size: 2.6rem; }
+            .hero h1 { 
+                font-size: 2.6rem; 
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-filter {
+                gap: 0.8rem;
+            }
+            
+            .filter-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .lightbox-nav {
+                padding: 0 1rem;
+            }
+            
+            .lightbox-nav button {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
         }
 
         @media (max-width: 576px) {
-            section { padding: 3.5rem 0; }
-            .hero-btns .btn { display: block; margin: 10px 0; }
+            section { 
+                padding: 3.5rem 0; 
+            }
+            
+            .hero-btns .btn { 
+                display: block; 
+                margin: 10px 0; 
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .gallery-img {
+                height: 220px;
+            }
         }
     </style>
 </head>
@@ -640,6 +1016,7 @@
                     <li><a href="#team">Our Team</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#software">Software</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
 
@@ -658,7 +1035,7 @@
                 <p style="color: white;">A multidisciplinary civil engineering firm offering expert services in building, railway, highway, and bridge design. We bring precision, reliability, and innovation to every project we deliver.</p>
                 <div class="hero-btns">
                     <a href="#about" class="btn">Discover More</a>
-                    <a href="#contact" class="btn btn-secondary">Contact Us</a>
+                    <a href="#gallery" class="btn btn-secondary">View Our Projects</a>
                 </div>
             </div>
         </div>
@@ -736,42 +1113,31 @@
 
                 <div class="team-card card-glow">
                     <div class="team-img">
-                        
-                             <img src="ggg.jpeg" alt="Arun Kumar" class="team-photo">
-                        
-                        <i  style="font-size: 4rem; color: var(--primary-color);"></i>
+                        <img src="ggg.jpeg" alt="Arun Kumar" class="team-photo">
+                        <i style="font-size: 4rem; color: var(--primary-color);"></i>
                     </div>
                     <div class="team-info">
                         <h3>ARUN KUMAR</h3>
                         <div class="team-role">Sr.Structure Engineer</div>
-                        <p>
-Structural Design Engineer with strong experience in detailed design and DPR preparation for buildings, bridges, railway structures, FOBs, PEBs, and high-rise RCC projects. Skilled in RCC and steel structural analysis, detailed engineering, and design optimization in compliance with IS Codes, IRC, and railway standards across infrastructure, industrial, highway, and railway sectors.
-</p>
+                        <p>Structural Design Engineer with strong experience in detailed design and DPR preparation for buildings, bridges, railway structures, FOBs, PEBs, and high-rise RCC projects. Skilled in RCC and steel structural analysis, detailed engineering, and design optimization in compliance with IS Codes, IRC, and railway standards across infrastructure, industrial, highway, and railway sectors.</p>
                     </div>
                 </div>
 
                 <div class="team-card card-glow">
                     <div class="team-img">
-                        
-                             <img src="mamta.jpeg" alt="Mamta Singh" class="team-photo">
-                        
-                             
-                        <i  style="font-size: 4rem; color: var(--primary-color);"></i>
+                        <img src="mamta.jpeg" alt="Mamta Singh" class="team-photo">
+                        <i style="font-size: 4rem; color: var(--primary-color);"></i>
                     </div>
                     <div class="team-info">
                         <h3>Mamta Singh</h3>
                         <div class="team-role">Director</div>
-                        <p>
-SFRA Engineering is a structural design firm with 2+ years of experience and 25+ design packages delivered, including 15+ major projects. The company is led by Director Mamata Singh, a B.Tech Civil Engineer from Delhi Technical University with 6+ years of experience in railway bridges, high-rise buildings, and detailed structural design. He also holds an MA degree from Veer Bahadur Purvanchal University and has expertise in data collection, inventory management, and audit report preparation for various projects.
-</p>
+                        <p>B.tech (Civil Engineering) From Delhi Technical University With 6+ year Experience in Railways Bridges, High Rise Buildings, Detail Design.</p>
                     </div>
                 </div>
 
                 <div class="team-card card-glow">
                     <div class="team-img">
-                        
-                             <img src="saif.jpeg"  alt="Saif Ali Khan" class="team-photo">
-                        
+                        <img src="saif.jpeg" alt="Saif Ali Khan" class="team-photo">
                         <i style="font-size: 4rem; color: var(--primary-color);"></i>
                     </div>
                     <div class="team-info">
@@ -869,6 +1235,201 @@ SFRA Engineering is a structural design firm with 2+ years of experience and 25+
         </div>
     </section>
 
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Project Gallery</h2>
+                <p style="text-align: center; max-width: 700px; margin: 0 auto 1rem; font-size: 1.1rem;">Explore our completed engineering projects showcasing excellence in design, precision, and execution.</p>
+            </div>
+
+            <!-- Gallery Filter -->
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="building">Building Design</button>
+                <button class="filter-btn" data-filter="bridge">Bridge Engineering</button>
+                <button class="filter-btn" data-filter="railway">Railway Projects</button>
+                <button class="filter-btn" data-filter="highway">Highway Design</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-grid">
+                <!-- Project 1 -->
+                <div class="gallery-item card-glow" data-category="building">
+                    <div class="gallery-img">
+                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" alt="Commercial Building Project">
+                        <div class="gallery-overlay">
+                            <a href="#" class="gallery-view" data-full="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80" target="_blank" class="gallery-fullscreen">
+                                <i class="fas fa-expand"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Commercial Complex Design</h3>
+                        <p>Complete structural design of a 15-story commercial building with seismic considerations and modern architectural features.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">RCC Design</span>
+                            <span class="project-tag">Seismic Analysis</span>
+                            <span class="project-tag">Foundation Design</span>
+                        </div>
+                        <span class="project-year">Completed: 2023</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="gallery-item card-glow" data-category="bridge">
+                    <div class="gallery-img">
+                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80" alt="Bridge Construction Project">
+                        <div class="gallery-overlay">
+                            <a href="#" class="gallery-view" data-full="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80" target="_blank" class="gallery-fullscreen">
+                                <i class="fas fa-expand"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Highway Overpass Bridge</h3>
+                        <p>Design and detailing of a 250m long prestressed concrete highway overpass with comprehensive load analysis.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Prestressed Concrete</span>
+                            <span class="project-tag">IRC Standards</span>
+                            <span class="project-tag">Load Analysis</span>
+                        </div>
+                        <span class="project-year">Completed: 2022</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="gallery-item card-glow" data-category="railway">
+                    <div class="gallery-img">
+                        <img src="https://images.unsplash.com/photo-1567597022663-5b4d1c21fec6?auto=format&fit=crop&w=800&q=80" alt="Railway Station Project">
+                        <div class="gallery-overlay">
+                            <a href="#" class="gallery-view" data-full="https://images.unsplash.com/photo-1567597022663-5b4d1c21fec6?auto=format&fit=crop&w=1200&q=80">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="https://images.unsplash.com/photo-1567597022663-5b4d1c21fec6?auto=format&fit=crop&w=1200&q=80" target="_blank" class="gallery-fullscreen">
+                                <i class="fas fa-expand"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Railway Platform Extension</h3>
+                        <p>Structural design for platform extension at a major railway station including FOB design and drainage systems.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Platform Design</span>
+                            <span class="project-tag">FOB Design</span>
+                            <span class="project-tag">Railway Standards</span>
+                        </div>
+                        <span class="project-year">Completed: 2023</span>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="gallery-item card-glow" data-category="highway">
+                    <div class="gallery-img">
+                        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=800&q=80" alt="Highway Project">
+                        <div class="gallery-overlay">
+                            <a href="#" class="gallery-view" data-full="https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=1200&q=80">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=1200&q=80" target="_blank" class="gallery-fullscreen">
+                                <i class="fas fa-expand"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>National Highway Design</h3>
+                        <p>Complete design package for a 50km stretch of national highway including geometric design and drainage planning.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Geometric Design</span>
+                            <span class="project-tag">Drainage System</span>
+                            <span class="project-tag">Pavement Design</span>
+                        </div>
+                        <span class="project-year">Completed: 2022</span>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="gallery-item card-glow" data-category="building">
+                    <div class="gallery-img">
+                        <img src="https://images.unsplash.com/photo-1487956382158-bb926046304a?auto=format&fit=crop&w=800&q=80" alt="Residential Project">
+                        <div class="gallery-overlay">
+                            <a href="#" class="gallery-view" data-full="https://images.unsplash.com/photo-1487956382158-bb926046304a?auto=format&fit=crop&w=1200&q=80">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="https://images.unsplash.com/photo-1487956382158-bb926046304a?auto=format&fit=crop&w=1200&q=80" target="_blank" class="gallery-fullscreen">
+                                <i class="fas fa-expand"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Residential Tower Complex</h3>
+                        <p>Structural design for a 20-story residential tower with earthquake-resistant features and optimized foundation design.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">High-Rise Design</span>
+                            <span class="project-tag">Earthquake Resistant</span>
+                            <span class="project-tag">Foundation Design</span>
+                        </div>
+                        <span class="project-year">Completed: 2023</span>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="gallery-item card-glow" data-category="bridge">
+                    <div class="gallery-img">
+                        <img src="https://images.unsplash.com/photo-1596727147705-61a532a659bd?auto=format&fit=crop&w=800&q=80" alt="Pedestrian Bridge">
+                        <div class="gallery-overlay">
+                            <a href="#" class="gallery-view" data-full="https://images.unsplash.com/photo-1596727147705-61a532a659bd?auto=format&fit=crop&w=1200&q=80">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="https://images.unsplash.com/photo-1596727147705-61a532a659bd?auto=format&fit=crop&w=1200&q=80" target="_blank" class="gallery-fullscreen">
+                                <i class="fas fa-expand"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>Pedestrian Foot Over Bridge</h3>
+                        <p>Design of a steel foot over bridge for railway crossing safety with accessibility features and vibration analysis.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Steel Structure</span>
+                            <span class="project-tag">Accessibility</span>
+                            <span class="project-tag">Vibration Analysis</span>
+                        </div>
+                        <span class="project-year">Completed: 2021</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View More Button -->
+            <div class="view-more-btn">
+                <a href="#contact" class="btn">Request More Project Details</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightbox-img">
+            <div class="lightbox-info">
+                <h3 id="lightbox-title"></h3>
+                <p id="lightbox-desc"></p>
+            </div>
+            <button class="lightbox-close" id="lightbox-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="lightbox-nav">
+                <button id="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
+                <button id="lightbox-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+
     <!-- Contact -->
     <section id="contact">
         <div class="container">
@@ -954,6 +1515,7 @@ SFRA Engineering is a structural design firm with 2+ years of experience and 25+
                         <li><a href="#vision">Vision & Mission</a></li>
                         <li><a href="#team">Our Team</a></li>
                         <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -1030,6 +1592,131 @@ SFRA Engineering is a structural design firm with 2+ years of experience and 25+
             e.preventDefault();
             alert('Thank you for your message! We will get back to you soon.');
             this.reset();
+        });
+
+        // Gallery Filter Functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                galleryItems.forEach((item, index) => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                        // Add animation delay for staggered appearance
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateY(30px)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Lightbox Functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const lightboxDesc = document.getElementById('lightbox-desc');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+
+        let currentImageIndex = 0;
+        let galleryImages = [];
+
+        // Initialize gallery images
+        document.querySelectorAll('.gallery-view').forEach((link, index) => {
+            const imgSrc = link.getAttribute('data-full');
+            const galleryItem = link.closest('.gallery-item');
+            const title = galleryItem.querySelector('h3').textContent;
+            const desc = galleryItem.querySelector('p').textContent;
+            
+            galleryImages.push({
+                src: imgSrc,
+                title: title,
+                description: desc,
+                index: index
+            });
+            
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                currentImageIndex = index;
+                openLightbox(currentImageIndex);
+            });
+        });
+
+        function openLightbox(index) {
+            const image = galleryImages[index];
+            lightboxImg.src = image.src;
+            lightboxTitle.textContent = image.title;
+            lightboxDesc.textContent = image.description;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function showNextImage() {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            openLightbox(currentImageIndex);
+        }
+
+        function showPrevImage() {
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            openLightbox(currentImageIndex);
+        }
+
+        // Event listeners for lightbox
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxNext.addEventListener('click', showNextImage);
+        lightboxPrev.addEventListener('click', showPrevImage);
+
+        // Close lightbox on background click
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Keyboard navigation for lightbox
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            
+            if (e.key === 'Escape') {
+                closeLightbox();
+            } else if (e.key === 'ArrowRight') {
+                showNextImage();
+            } else if (e.key === 'ArrowLeft') {
+                showPrevImage();
+            }
+        });
+
+        // Add subtle animation to gallery items on hover
+        galleryItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = 'translateY(0) scale(1)';
+            });
         });
     </script>
 
